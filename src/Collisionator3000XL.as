@@ -5,6 +5,8 @@ package
 	import com.greensock.TweenMax;
 	import com.greensock.easing.FastEase;
 	
+	import fl.controls.CheckBox;
+	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -20,8 +22,10 @@ package
 		private var _screen:AssetCollisionator = new AssetCollisionator;
 		
 		private var _catNum:Number = 0;
-		private var _currentInput:TextField;
+		private var _currentInputTF:TextField;
+		private var _currentCheckBox:CheckBox;
 		private var _currentCatString:String = '';
+		private var _cat1MaskBits:Number = 0; 																			// total sum of all category collision bit values in that row
 		
 		public function Collisionator3000XL()
 		{
@@ -45,36 +49,75 @@ package
 		
 		private function addEventListeners():void 																		// SETUP ALL FIELD LISTENERS... 
 		{
-			_screen.input1.addEventListener(Event.CHANGE, calculateIT);
-			_screen.input2.addEventListener(Event.CHANGE, calculateIT);
-			_screen.input3.addEventListener(Event.CHANGE, calculateIT);
-			_screen.input4.addEventListener(Event.CHANGE, calculateIT);
-			_screen.input5.addEventListener(Event.CHANGE, calculateIT);
-			_screen.input6.addEventListener(Event.CHANGE, calculateIT);
-			_screen.input7.addEventListener(Event.CHANGE, calculateIT);
-			_screen.input8.addEventListener(Event.CHANGE, calculateIT);
-			_screen.input9.addEventListener(Event.CHANGE, calculateIT);
-			_screen.input10.addEventListener(Event.CHANGE, calculateIT);
+			_screen.input1.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input2.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input3.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input4.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input5.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input6.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input7.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input8.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input9.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input10.addEventListener(Event.CHANGE, updateInputData);
 			
-			_screen.input1.addEventListener(FocusEvent.FOCUS_IN, focusIN);
-			_screen.input2.addEventListener(FocusEvent.FOCUS_IN, focusIN);
-			_screen.input3.addEventListener(FocusEvent.FOCUS_IN, focusIN);
-			_screen.input4.addEventListener(FocusEvent.FOCUS_IN, focusIN);
-			_screen.input5.addEventListener(FocusEvent.FOCUS_IN, focusIN);
-			_screen.input6.addEventListener(FocusEvent.FOCUS_IN, focusIN);
-			_screen.input7.addEventListener(FocusEvent.FOCUS_IN, focusIN);
-			_screen.input8.addEventListener(FocusEvent.FOCUS_IN, focusIN);
-			_screen.input9.addEventListener(FocusEvent.FOCUS_IN, focusIN);
-			_screen.input10.addEventListener(FocusEvent.FOCUS_IN, focusIN);
+			_screen.input1.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input2.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input3.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input4.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input5.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input6.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input7.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input8.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input9.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input10.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			
+			_screen.cat1_1.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
+			_screen.cat1_2.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
+			_screen.cat1_4.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
+			_screen.cat1_8.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
+			_screen.cat1_16.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
+			_screen.cat1_32.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
+			_screen.cat1_64.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
+			_screen.cat1_128.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
+			_screen.cat1_256.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
+			_screen.cat1_512.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
+			
+			
+		}
+		
+		private function check1FocusIN(e:FocusEvent):void
+		{
+			var checkName:String = e.target.name;
+			trace ('checkName = ' + checkName);
+			
+			_catNum = 1;
+			
+			_currentCheckBox = e.target.valueOf();
+			
+			var bitValue:Number = Number(getCatBitValue(checkName));
+			
+			trace ('bitValue = ' + bitValue);
+			
+			// now we add to the _cat1MaskBits number
+			
+			_cat1MaskBits = _cat1MaskBits + bitValue;
+			
+			trace ('_catMaskBits = ' + _cat1MaskBits);
+			
+			calcuTron();
+			
 			
 		}
 		
 		
-		private function focusIN(e:FocusEvent):void
+		private function textFocusIN(e:FocusEvent):void
 		{
-			var inputString:String = e.target.name;
-			_currentInput = e.target.valueOf();
-			_catNum = Number(getLastChar(inputString));
+			var inputName:String = e.target.name;
+			
+			trace ('inputName = ' + inputName);
+			
+			_currentInputTF = e.target.valueOf();
+			_catNum = Number(getLastChar(inputName));
 			
 			switch (_catNum)
 			{
@@ -122,19 +165,29 @@ package
 			
 		}
 		
-		private function calculateIT(e:Event):void 																			// PRIMARY CALCULATION FUNCTION	
+		private function updateInputData(e:Event):void 																			// PRIMARY CALCULATION FUNCTION	
 		{
-			_currentCatString = _currentInput.text;
+			_currentCatString = _currentInputTF.text;
 			
 			trace ('catNum = ' + _catNum);
 			
 			trace ('currentCatString = ' + _currentCatString);
 			
+			calcuTron();
+			
+			
+		}
+		
+		private function calcuTron():void
+		{
 			// populate the top displays...
+			var catBitValue:Number;
 			switch (_catNum)
 			{
 				case 1 :
+					catBitValue = 1;
 					_screen.display1.text = '' + _currentCatString;
+					_screen.result1.text = _currentCatString + 'CollisionFilter = { categoryBits = ' + catBitValue + ', maskBits = ' + _cat1MaskBits + ' }'
 					break;
 				case 2 :
 					_screen.display2.text = '' + _currentCatString;
@@ -164,12 +217,6 @@ package
 					_screen.display10.text = '' + _currentCatString;
 					break;
 			}
-			
-			
-			
-			// populate the collision filter items
-//			cat1CollisionFilter = { categoryBits = 1, maskBits = 14 }
-			
 		}
 		
 		
@@ -185,13 +232,22 @@ package
 		}
 		
 		
+		// VALUE-RETURNING UTLITY FUNCTIONS 		
 		
-//		There's a dynamic textfield on stage which holds some text. I wanted to achieve a "Select all the text as soon as the user (single-)clicks on it" - this surely is a bit unorthodox, but there was a reason for that. At first I didn't think of any problems that could occur, but as usual I was surprised by Flash again.
-		
-		
+		private function getCatName(s:String):String // here we just want to extract 'cat1' from 'cat1_
+		{
+			return s.substr(0,4);
+		}
+
 		private function getLastChar(s:String):String
 		{
 			return s.substr(s.length-1,s.length);
+		}
+
+		private function getCatBitValue(s:String):String // here we want to extract 32 from 'cat1_32'...
+		{
+			return s.substr(5,s.length);
+			
 		}
 		
 	}
