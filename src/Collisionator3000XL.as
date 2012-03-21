@@ -1,4 +1,4 @@
-// created by Mike Delucchi . Zanuka . mike@zanuka.com
+// designed and developed by Mike Delucchi . Zanuka . mike@zanuka.com
 
 package
 {
@@ -70,145 +70,10 @@ package
 			addChild(_screen);
 		}
 		
-		private function addEventListeners():void 																		// SETUP ALL FIELD LISTENERS... 
-		{
-			_screen.input1.addEventListener(Event.CHANGE, updateInputData);
-			_screen.input2.addEventListener(Event.CHANGE, updateInputData);
-			_screen.input3.addEventListener(Event.CHANGE, updateInputData);
-			_screen.input4.addEventListener(Event.CHANGE, updateInputData);
-			_screen.input5.addEventListener(Event.CHANGE, updateInputData);
-			_screen.input6.addEventListener(Event.CHANGE, updateInputData);
-			_screen.input7.addEventListener(Event.CHANGE, updateInputData);
-			_screen.input8.addEventListener(Event.CHANGE, updateInputData);
-			_screen.input9.addEventListener(Event.CHANGE, updateInputData);
-			_screen.input10.addEventListener(Event.CHANGE, updateInputData);
-			
-			_screen.input1.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
-			_screen.input2.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
-			_screen.input3.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
-			_screen.input4.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
-			_screen.input5.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
-			_screen.input6.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
-			_screen.input7.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
-			_screen.input8.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
-			_screen.input9.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
-			_screen.input10.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
-			
-			_screen.cat1_1.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat1_2.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat1_4.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat1_8.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat1_16.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat1_32.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat1_64.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat1_128.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat1_256.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat1_512.addEventListener(Event.CHANGE, checkFocusIN);
-			
-			_screen.cat2_1.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat2_2.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat2_4.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat2_8.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat2_16.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat2_32.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat2_64.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat2_128.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat2_256.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat2_512.addEventListener(Event.CHANGE, checkFocusIN);
-
-			_screen.cat3_1.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat3_2.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat3_4.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat3_8.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat3_16.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat3_32.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat3_64.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat3_128.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat3_256.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat3_512.addEventListener(Event.CHANGE, checkFocusIN);
-
-			_screen.cat4_1.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat4_2.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat4_4.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat4_8.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat4_16.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat4_32.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat4_64.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat4_128.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat4_256.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat4_512.addEventListener(Event.CHANGE, checkFocusIN);
-
-			_screen.cat5_1.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat5_2.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat5_4.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat5_8.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat5_16.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat5_32.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat5_64.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat5_128.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat5_256.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat5_512.addEventListener(Event.CHANGE, checkFocusIN);
-
-			_screen.cat6_1.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat6_2.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat6_4.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat6_8.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat6_16.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat6_32.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat6_64.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat6_128.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat6_256.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat6_512.addEventListener(Event.CHANGE, checkFocusIN);
-
-			_screen.cat7_1.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat7_2.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat7_4.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat7_8.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat7_16.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat7_32.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat7_64.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat7_128.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat7_256.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat7_512.addEventListener(Event.CHANGE, checkFocusIN);
-
-			_screen.cat8_1.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat8_2.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat8_4.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat8_8.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat8_16.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat8_32.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat8_64.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat8_128.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat8_256.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat8_512.addEventListener(Event.CHANGE, checkFocusIN);
-
-			_screen.cat9_1.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat9_2.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat9_4.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat9_8.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat9_16.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat9_32.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat9_64.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat9_128.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat9_256.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat9_512.addEventListener(Event.CHANGE, checkFocusIN);
-
-			_screen.cat0_1.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat0_2.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat0_4.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat0_8.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat0_16.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat0_32.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat0_64.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat0_128.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat0_256.addEventListener(Event.CHANGE, checkFocusIN);
-			_screen.cat0_512.addEventListener(Event.CHANGE, checkFocusIN);
-		}
 		
 		private function checkFocusIN(e:Event):void
 		{
 			var checkName:String = e.target.name;
-			trace ('\ncheckName = ' + checkName);
 			
 			_currentCheckBox = e.target.valueOf();
 			
@@ -216,7 +81,6 @@ package
 			_catNum = checkBoxCatNum;
 			
 			var bitValue:Number = Number(getCatBitValue(checkName));
-			trace ('_currentCheckBox = ' + _currentCheckBox.selected);
 
 			if (_currentCheckBox.selected == false) { 			// if it's selected, you get positive bitValue, if not,,, negative to subract
 				bitValue = -bitValue;
@@ -269,9 +133,6 @@ package
 		private function textFocusIN(e:FocusEvent):void
 		{
 			var inputName:String = e.target.name;
-			
-			trace ('inputName = ' + inputName);
-			
 			_currentInputTF = e.target.valueOf();
 			_catNum = Number(getLastChar(inputName));
 			
@@ -324,20 +185,12 @@ package
 		private function updateInputData(e:Event):void 																			// PRIMARY CALCULATION FUNCTION	
 		{
 			_currentCatString = _currentInputTF.text;
-			
-			trace ('catNum = ' + _catNum);
-			
-			trace ('currentCatString = ' + _currentCatString);
-			
 			updateDisplays();
 			updateResults();
-			
-			
 		}
 		
 		private function updateDisplays():void
 		{
-			// populate the top displays...
 			var catBitValue:Number;
 			switch (_catNum)
 			{
@@ -396,7 +249,6 @@ package
 
 		private function updateResults():void
 		{
-			// populate the results...
 			var catBitValue:Number;
 			switch (_catNum)
 			{
@@ -455,8 +307,143 @@ package
 			
 		}
 		
+		private function addEventListeners():void 																		// SETUP ALL FIELD LISTENERS... 
+		{
+			_screen.input1.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input2.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input3.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input4.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input5.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input6.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input7.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input8.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input9.addEventListener(Event.CHANGE, updateInputData);
+			_screen.input10.addEventListener(Event.CHANGE, updateInputData);
+			
+			_screen.input1.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input2.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input3.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input4.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input5.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input6.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input7.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input8.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input9.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			_screen.input10.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
+			
+			_screen.cat1_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_512.addEventListener(Event.CHANGE, checkFocusIN);
+			
+			_screen.cat2_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_512.addEventListener(Event.CHANGE, checkFocusIN);
+			
+			_screen.cat3_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_512.addEventListener(Event.CHANGE, checkFocusIN);
+			
+			_screen.cat4_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_512.addEventListener(Event.CHANGE, checkFocusIN);
+			
+			_screen.cat5_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_512.addEventListener(Event.CHANGE, checkFocusIN);
+			
+			_screen.cat6_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_512.addEventListener(Event.CHANGE, checkFocusIN);
+			
+			_screen.cat7_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_512.addEventListener(Event.CHANGE, checkFocusIN);
+			
+			_screen.cat8_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_512.addEventListener(Event.CHANGE, checkFocusIN);
+			
+			_screen.cat9_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_512.addEventListener(Event.CHANGE, checkFocusIN);
+			
+			_screen.cat0_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_512.addEventListener(Event.CHANGE, checkFocusIN);
+		}
 		
-		// VALUE-RETURNING UTLITY FUNCTIONS 		
+		
+		// NEATO BURRITO VALUE-RETURNING UTLITY FUNCTIONS 		
 		
 		private function getCheckCatNum(s:String):String // here we just want to extract 'cat1' from 'cat1_
 		{
