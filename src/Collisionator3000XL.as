@@ -126,7 +126,83 @@ package
 			_screen.cat3_128.addEventListener(Event.CHANGE, checkFocusIN);
 			_screen.cat3_256.addEventListener(Event.CHANGE, checkFocusIN);
 			_screen.cat3_512.addEventListener(Event.CHANGE, checkFocusIN);
-			
+
+			_screen.cat4_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat4_512.addEventListener(Event.CHANGE, checkFocusIN);
+
+			_screen.cat5_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat5_512.addEventListener(Event.CHANGE, checkFocusIN);
+
+			_screen.cat6_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat6_512.addEventListener(Event.CHANGE, checkFocusIN);
+
+			_screen.cat7_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat7_512.addEventListener(Event.CHANGE, checkFocusIN);
+
+			_screen.cat8_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat8_512.addEventListener(Event.CHANGE, checkFocusIN);
+
+			_screen.cat9_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat9_512.addEventListener(Event.CHANGE, checkFocusIN);
+
+			_screen.cat0_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat0_512.addEventListener(Event.CHANGE, checkFocusIN);
 		}
 		
 		private function checkFocusIN(e:Event):void
@@ -146,15 +222,7 @@ package
 				bitValue = -bitValue;
 			}
 			
-			// we also need to get the current text from the input value of this cat row
-			
-//			_currentInputTF = e.target.valueOf();
-			
-			
-			
-			
 			calcMaskBits(checkBoxCatNum, bitValue);			
-			
 		}
 		
 		private function calcMaskBits(cat:Number, bit:Number):void
@@ -163,19 +231,36 @@ package
 			{
 				case 1 : 
 					_cat1MaskBits = _cat1MaskBits + bit;	
-					trace ('_cat1MaskBits = ' + _cat1MaskBits);
 					break;
 				case 2 : 
 					_cat2MaskBits = _cat2MaskBits + bit;	
-					trace ('_cat2MaskBits = ' + _cat2MaskBits);
 					break;
 				case 3 : 
 					_cat3MaskBits = _cat3MaskBits + bit;	
-					trace ('_cat3MaskBits = ' + _cat3MaskBits);
+					break;
+				case 4 : 
+					_cat4MaskBits = _cat4MaskBits + bit;	
+					break;
+				case 5 : 
+					_cat5MaskBits = _cat5MaskBits + bit;	
+					break;
+				case 6 : 
+					_cat6MaskBits = _cat6MaskBits + bit;	
+					break;
+				case 7 : 
+					_cat7MaskBits = _cat7MaskBits + bit;	
+					break;
+				case 8 : 
+					_cat8MaskBits = _cat8MaskBits + bit;	
+					break;
+				case 9 : 
+					_cat9MaskBits = _cat9MaskBits + bit;	
+					break;
+				case 10 : 
+					_cat0MaskBits = _cat0MaskBits + bit;	
 					break;
 			}
 			
-//			updateDisplays();
 			updateResults();
 			
 		}
@@ -245,7 +330,7 @@ package
 			trace ('currentCatString = ' + _currentCatString);
 			
 			updateDisplays();
-//			updateResults();
+			updateResults();
 			
 			
 		}
@@ -329,24 +414,31 @@ package
 					break;
 				case 4 :
 					catBitValue = 8;
+					_screen.result4.text = _input4String+ 'CollisionFilter = { categoryBits = ' + catBitValue + ', maskBits = ' + _cat4MaskBits + ' }'
 					break;
 				case 5 :
 					catBitValue = 16;
+					_screen.result5.text = _input5String+ 'CollisionFilter = { categoryBits = ' + catBitValue + ', maskBits = ' + _cat5MaskBits + ' }'
 					break;
 				case 6 :
 					catBitValue = 32;
+					_screen.result6.text = _input6String+ 'CollisionFilter = { categoryBits = ' + catBitValue + ', maskBits = ' + _cat6MaskBits + ' }'
 					break;
 				case 7 :
 					catBitValue = 64;
+					_screen.result7.text = _input7String+ 'CollisionFilter = { categoryBits = ' + catBitValue + ', maskBits = ' + _cat7MaskBits + ' }'
 					break;
 				case 8 :
 					catBitValue = 128;
+					_screen.result8.text = _input8String+ 'CollisionFilter = { categoryBits = ' + catBitValue + ', maskBits = ' + _cat8MaskBits + ' }'
 					break;
 				case 9 :
 					catBitValue = 256;
+					_screen.result9.text = _input9String+ 'CollisionFilter = { categoryBits = ' + catBitValue + ', maskBits = ' + _cat9MaskBits + ' }'
 					break;
 				case 0 :
 					catBitValue = 512;
+					_screen.result10.text = _input0String+ 'CollisionFilter = { categoryBits = ' + catBitValue + ', maskBits = ' + _cat0MaskBits + ' }'
 					break;
 			}
 		}
