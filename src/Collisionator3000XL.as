@@ -120,7 +120,7 @@ package
 				case 9 : 
 					_cat9MaskBits = _cat9MaskBits + bit;	
 					break;
-				case 10 : 
+				case 0 : 
 					_cat0MaskBits = _cat0MaskBits + bit;	
 					break;
 			}
@@ -295,10 +295,9 @@ package
 			}
 		}
 		
-		
 		private function resultFocusIN(e:FocusEvent):void																	// RESULT FIELDS - FOR COPYING / PASTING
 		{
-			setTimeout(e.target.setSelection, 50, 0, e.target.text.length); // we put delay on the focusIN event so that it will select all and you can copy to clipboard
+			setTimeout(e.target.setSelection, 25, 0, e.target.text.length); // we put delay on the focusIN event so that it will select all and you can copy to clipboard
 		}
 
 		private function resultFocusOUT(e:FocusEvent):void
@@ -440,6 +439,17 @@ package
 			_screen.cat0_128.addEventListener(Event.CHANGE, checkFocusIN);
 			_screen.cat0_256.addEventListener(Event.CHANGE, checkFocusIN);
 			_screen.cat0_512.addEventListener(Event.CHANGE, checkFocusIN);
+			
+			_screen.result1.addEventListener(FocusEvent.FOCUS_IN, resultFocusIN);
+			_screen.result2.addEventListener(FocusEvent.FOCUS_IN, resultFocusIN);
+			_screen.result3.addEventListener(FocusEvent.FOCUS_IN, resultFocusIN);
+			_screen.result4.addEventListener(FocusEvent.FOCUS_IN, resultFocusIN);
+			_screen.result5.addEventListener(FocusEvent.FOCUS_IN, resultFocusIN);
+			_screen.result6.addEventListener(FocusEvent.FOCUS_IN, resultFocusIN);
+			_screen.result7.addEventListener(FocusEvent.FOCUS_IN, resultFocusIN);
+			_screen.result8.addEventListener(FocusEvent.FOCUS_IN, resultFocusIN);
+			_screen.result9.addEventListener(FocusEvent.FOCUS_IN, resultFocusIN);
+			_screen.result10.addEventListener(FocusEvent.FOCUS_IN, resultFocusIN);
 		}
 		
 		
