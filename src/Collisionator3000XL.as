@@ -22,10 +22,33 @@ package
 		private var _screen:AssetCollisionator = new AssetCollisionator;
 		
 		private var _catNum:Number = 0;
+//		private var _catName:Number = 0;
 		private var _currentInputTF:TextField;
 		private var _currentCheckBox:CheckBox;
 		private var _currentCatString:String = '';
+		private var _input1String:String = '';
+		private var _input2String:String = '';
+		private var _input3String:String = '';
+		private var _input4String:String = '';
+		private var _input5String:String = '';
+		private var _input6String:String = '';
+		private var _input7String:String = '';
+		private var _input8String:String = '';
+		private var _input9String:String = '';
+		private var _input0String:String = '';
+		
+		
+		
 		private var _cat1MaskBits:Number = 0; 																			// total sum of all category collision bit values in that row
+		private var _cat2MaskBits:Number = 0; 																			// total sum of all category collision bit values in that row
+		private var _cat3MaskBits:Number = 0; 																			// total sum of all category collision bit values in that row
+		private var _cat4MaskBits:Number = 0; 																			// total sum of all category collision bit values in that row
+		private var _cat5MaskBits:Number = 0; 																			// total sum of all category collision bit values in that row
+		private var _cat6MaskBits:Number = 0; 																			// total sum of all category collision bit values in that row
+		private var _cat7MaskBits:Number = 0; 																			// total sum of all category collision bit values in that row
+		private var _cat8MaskBits:Number = 0; 																			// total sum of all category collision bit values in that row
+		private var _cat9MaskBits:Number = 0; 																			// total sum of all category collision bit values in that row
+		private var _cat0MaskBits:Number = 0; 																			// total sum of all category collision bit values in that row
 		
 		public function Collisionator3000XL()
 		{
@@ -71,41 +94,89 @@ package
 			_screen.input9.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
 			_screen.input10.addEventListener(FocusEvent.FOCUS_IN, textFocusIN);
 			
-			_screen.cat1_1.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
-			_screen.cat1_2.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
-			_screen.cat1_4.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
-			_screen.cat1_8.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
-			_screen.cat1_16.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
-			_screen.cat1_32.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
-			_screen.cat1_64.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
-			_screen.cat1_128.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
-			_screen.cat1_256.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
-			_screen.cat1_512.addEventListener(FocusEvent.FOCUS_IN, check1FocusIN);
+			_screen.cat1_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat1_512.addEventListener(Event.CHANGE, checkFocusIN);
 			
+			_screen.cat2_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat2_512.addEventListener(Event.CHANGE, checkFocusIN);
+
+			_screen.cat3_1.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_2.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_4.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_8.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_16.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_32.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_64.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_128.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_256.addEventListener(Event.CHANGE, checkFocusIN);
+			_screen.cat3_512.addEventListener(Event.CHANGE, checkFocusIN);
 			
 		}
 		
-		private function check1FocusIN(e:FocusEvent):void
+		private function checkFocusIN(e:Event):void
 		{
 			var checkName:String = e.target.name;
-			trace ('checkName = ' + checkName);
-			
-			_catNum = 1;
+			trace ('\ncheckName = ' + checkName);
 			
 			_currentCheckBox = e.target.valueOf();
 			
+			var checkBoxCatNum:Number = Number(getCheckCatNum(checkName)); // just give us '2' from 'cat2_1'
+			_catNum = checkBoxCatNum;
+			
 			var bitValue:Number = Number(getCatBitValue(checkName));
+			trace ('_currentCheckBox = ' + _currentCheckBox.selected);
+
+			if (_currentCheckBox.selected == false) { 			// if it's selected, you get positive bitValue, if not,,, negative to subract
+				bitValue = -bitValue;
+			}
 			
-			trace ('bitValue = ' + bitValue);
+			// we also need to get the current text from the input value of this cat row
 			
-			// now we add to the _cat1MaskBits number
+//			_currentInputTF = e.target.valueOf();
 			
-			_cat1MaskBits = _cat1MaskBits + bitValue;
 			
-			trace ('_catMaskBits = ' + _cat1MaskBits);
 			
-			calcuTron();
 			
+			calcMaskBits(checkBoxCatNum, bitValue);			
+			
+		}
+		
+		private function calcMaskBits(cat:Number, bit:Number):void
+		{
+			switch (cat)
+			{
+				case 1 : 
+					_cat1MaskBits = _cat1MaskBits + bit;	
+					trace ('_cat1MaskBits = ' + _cat1MaskBits);
+					break;
+				case 2 : 
+					_cat2MaskBits = _cat2MaskBits + bit;	
+					trace ('_cat2MaskBits = ' + _cat2MaskBits);
+					break;
+				case 3 : 
+					_cat3MaskBits = _cat3MaskBits + bit;	
+					trace ('_cat3MaskBits = ' + _cat3MaskBits);
+					break;
+			}
+			
+//			updateDisplays();
+			updateResults();
 			
 		}
 		
@@ -173,12 +244,13 @@ package
 			
 			trace ('currentCatString = ' + _currentCatString);
 			
-			calcuTron();
+			updateDisplays();
+//			updateResults();
 			
 			
 		}
 		
-		private function calcuTron():void
+		private function updateDisplays():void
 		{
 			// populate the top displays...
 			var catBitValue:Number;
@@ -187,34 +259,94 @@ package
 				case 1 :
 					catBitValue = 1;
 					_screen.display1.text = '' + _currentCatString;
-					_screen.result1.text = _currentCatString + 'CollisionFilter = { categoryBits = ' + catBitValue + ', maskBits = ' + _cat1MaskBits + ' }'
+					_input1String = _currentCatString;
 					break;
 				case 2 :
+					catBitValue = 2;
 					_screen.display2.text = '' + _currentCatString;
+					_input2String = _currentCatString;
 					break;
 				case 3 :
+					catBitValue = 4;
 					_screen.display3.text = '' + _currentCatString;
+					_input3String = _currentCatString;
 					break;
 				case 4 :
+					catBitValue = 8;
 					_screen.display4.text = '' + _currentCatString;
+					_input4String = _currentCatString;
 					break;
 				case 5 :
+					catBitValue = 16;
 					_screen.display5.text = '' + _currentCatString;
+					_input5String = _currentCatString;
 					break;
 				case 6 :
+					catBitValue = 32;
 					_screen.display6.text = '' + _currentCatString;
+					_input6String = _currentCatString;
 					break;
 				case 7 :
+					catBitValue = 64;
 					_screen.display7.text = '' + _currentCatString;
+					_input7String = _currentCatString;
 					break;
 				case 8 :
+					catBitValue = 128;
 					_screen.display8.text = '' + _currentCatString;
+					_input8String = _currentCatString;
 					break;
 				case 9 :
+					catBitValue = 256;
 					_screen.display9.text = '' + _currentCatString;
+					_input9String = _currentCatString;
 					break;
 				case 0 :
+					catBitValue = 512;
 					_screen.display10.text = '' + _currentCatString;
+					_input0String = _currentCatString;
+					break;
+			}
+		}
+
+		private function updateResults():void
+		{
+			// populate the results...
+			var catBitValue:Number;
+			switch (_catNum)
+			{
+				case 1 :
+					catBitValue = 1;
+					_screen.result1.text = _input1String + 'CollisionFilter = { categoryBits = ' + catBitValue + ', maskBits = ' + _cat1MaskBits + ' }'
+					break;
+				case 2 :
+					catBitValue = 2;
+					_screen.result2.text = _input2String + 'CollisionFilter = { categoryBits = ' + catBitValue + ', maskBits = ' + _cat2MaskBits + ' }'
+					break;
+				case 3 :
+					catBitValue = 4;
+					_screen.result3.text = _input3String+ 'CollisionFilter = { categoryBits = ' + catBitValue + ', maskBits = ' + _cat3MaskBits + ' }'
+					break;
+				case 4 :
+					catBitValue = 8;
+					break;
+				case 5 :
+					catBitValue = 16;
+					break;
+				case 6 :
+					catBitValue = 32;
+					break;
+				case 7 :
+					catBitValue = 64;
+					break;
+				case 8 :
+					catBitValue = 128;
+					break;
+				case 9 :
+					catBitValue = 256;
+					break;
+				case 0 :
+					catBitValue = 512;
 					break;
 			}
 		}
@@ -234,9 +366,9 @@ package
 		
 		// VALUE-RETURNING UTLITY FUNCTIONS 		
 		
-		private function getCatName(s:String):String // here we just want to extract 'cat1' from 'cat1_
+		private function getCheckCatNum(s:String):String // here we just want to extract 'cat1' from 'cat1_
 		{
-			return s.substr(0,4);
+			return s.substr(3,1);
 		}
 
 		private function getLastChar(s:String):String
