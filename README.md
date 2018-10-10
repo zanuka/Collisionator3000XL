@@ -3,6 +3,9 @@ A free online tool to generate collision filters quickly for use in apps & games
 
 [Collisionator 3000XL](http://labs.zanuka.com/collisionator3000XL/index.html)
 
+## Why Collisionator?
+If you're building your first game or a seasoned vet, collisions usually enter the design equation at some point. You’ll generally need a collision handler, regardless of your game style. Some frameworks will do it for you, but for traditional/manual builds you will likely be needing to calculate your own. Hopefully you find this tool useful.
+
 * UPDATE: New version uploaded April 2, 2012. This version automatically selects the reciprocal object collision so you no longer have to tick both manually. For example if you want object 2 to collide with object 1, just select one collision in the grid and the other will be auto-selected and filter also generated.
 I've also added a 'copy all to clipboard' button... but you can still copy line by line if needed.
 
