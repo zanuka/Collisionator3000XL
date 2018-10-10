@@ -1,11 +1,7 @@
 # Collisionator - Filter Generator
+A free online tool to generate collision filters quickly for use in apps & games.
 
-[LIVE VERSION](http://labs.zanuka.com/collisionator3000XL/index.html)
-
-[CoronaLabs[zanuka]](http://web-b1.anscamobile.com/code/zanuka)
-
-I've created a tool to generate collision filters quickly for use in apps & games:
-http://labs.zanuka.com/collisionator3000XL/index.html
+[Collisionator 3000XL](http://labs.zanuka.com/collisionator3000XL/index.html)
 
 * UPDATE: New version uploaded April 2, 2012. This version automatically selects the reciprocal object collision so you no longer have to tick both manually. For example if you want object 2 to collide with object 1, just select one collision in the grid and the other will be auto-selected and filter also generated.
 I've also added a 'copy all to clipboard' button... but you can still copy line by line if needed.
