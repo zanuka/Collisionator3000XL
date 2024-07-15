@@ -1,8 +1,6 @@
 # Collisionator - Filter Generator
 A free online tool to generate collision filters quickly for use in apps & games.
 
-[Collisionator 3000XL](http://labs.zanuka.com/collisionator3000XL/index.html)
-
 ## Why Collisionator?
 If you're building your first game or a seasoned vet, collisions usually enter the design equation at some point. You’ll generally need a collision handler, regardless of your game style. Some frameworks will do it for you, but for traditional/manual builds you will likely be needing to calculate your own. Hopefully you find this tool useful.
 
